@@ -78,10 +78,12 @@ const Sidebar = ({isMenuOpen,project,setProject,isGenerating,setIsGenerating}: S
   },[project.conversation,isGenerating])
 
   return (
-    <div className={`h-full text-sm bg-gray-800 text-white px-4 pt-4 transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-[25%]' : 'w-0'} hidden sm:block overflow-y-auto custom-scrollbar`}>
+    <div className={`h-full text-sm bg-gray-800 text-white transition-all duration-300 ease-in-out hidden sm:flex flex-col ${isMenuOpen ? 'w-[25%] min-w-[280px] px-4 pt-4' : 'w-0 px-0 overflow-hidden'} overflow-y-auto custom-scrollbar`}>
+      {isMenuOpen && (
+        <>
       {/* <div className='flex flex-col'> */}
       {/* Message containter */}
-      <div className="flex flex-col">
+      <div className="flex flex-col flex-1">
       {[...project.conversation,...project.versions].sort((a,b)=>new Date(a.timestamp).getTime()-new Date(b.timestamp).getTime()).map((message,index)=>{
         const isMessage='content' in message
         if(isMessage){
@@ -181,6 +183,8 @@ const Sidebar = ({isMenuOpen,project,setProject,isGenerating,setIsGenerating}: S
           </button>
         </form>
       </div>
+      </>
+      )}
     {/* </div> */}
     </div>
   )

@@ -71,7 +71,7 @@ export const createUserProject=async (req:Request,res:Response)=>{
         })
         
         const promptEnhanceResponse=await openai.chat.completions.create({
-            model:'arcee-ai/trinity-large-preview:free',
+            model:'xiaomi/mimo-v2-flash',
             messages:[
                 {
                     role:'system',
@@ -110,10 +110,10 @@ export const createUserProject=async (req:Request,res:Response)=>{
                 projectId:project.id
             }
         })
-        
+
         // generate website code with enhanced prompt
         const codeGenerationResponse=await openai.chat.completions.create({
-            model:'arcee-ai/trinity-large-preview:free',
+            model:'xiaomi/mimo-v2-flash',
             messages:[
                 {
                     role:'system',

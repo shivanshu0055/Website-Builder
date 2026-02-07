@@ -62,7 +62,7 @@ export const makeRevision=async (req:Request,res:Response)=>{
 
         // Enhace user prompt
         const promptEnhanceResponse=await openai.chat.completions.create({
-            model:'arcee-ai/trinity-large-preview:free',
+            model:'xiaomi/mimo-v2-flash',
             messages:[
                 {
                     role:'system',
@@ -103,7 +103,7 @@ export const makeRevision=async (req:Request,res:Response)=>{
         })
 
         const codeGenerationResponse=await openai.chat.completions.create({
-            model:'arcee-ai/trinity-large-preview:free',
+            model:'xiaomi/mimo-v2-flash',
             messages:[
                 {
                     role:'system',
