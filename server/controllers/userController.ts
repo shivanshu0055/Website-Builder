@@ -93,7 +93,7 @@ export const createUserProject=async (req:Request,res:Response)=>{
         })
 
         const enhancedPrompt=promptEnhanceResponse.choices[0].message?.content
-        console.log("Enhanced Prompt: ",enhancedPrompt);
+        // console.log("Enhanced Prompt: ",enhancedPrompt);
         
         await prisma.conversation.create({
             data:{
@@ -150,7 +150,7 @@ export const createUserProject=async (req:Request,res:Response)=>{
         })
 
         const code=codeGenerationResponse.choices[0].message?.content || ''
-        console.log("Generated Code: ", code);
+        // console.log("Generated Code: ", code);
         
         if(!code){
                     await prisma.conversation.create({
@@ -172,6 +172,7 @@ export const createUserProject=async (req:Request,res:Response)=>{
                     })
                     return
                 }
+                
         // create version
         const version=await prisma.version.create({
             data:{

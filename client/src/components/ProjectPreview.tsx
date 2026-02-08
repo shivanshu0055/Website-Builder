@@ -121,10 +121,19 @@ const ProjectPreview = forwardRef<ProjectPreviewRef,ProjectPreviewProps>(({
         // {showEditorPanel && selectedElement && (<EditorPanel selectedElement={selectedElement} onUpdate={handleUpdate} onClose={() => setSelectedElement(null)}/>)}
       
       ) : isGenerating ? (  
-        <div className="flex items-center justify-center w-full h-full">
-          <div className="text-center">
-            <div className="loader mb-4"></div>
-            <div className="text-lg">Generating preview...</div>
+        <div className="flex items-center justify-center w-full h-full bg-slate-950/5">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <div className="relative">
+              <div className="h-36 w-36 rounded-full border-8 border-slate-300/40 border-t-slate-900 animate-spin"></div>
+              <div className="absolute inset-4 rounded-full border-4 border-slate-500/40 border-b-slate-900 animate-spin [animation-duration:1.6s]"></div>
+              <div className="absolute inset-10 rounded-full bg-slate-900/5 animate-pulse"></div>
+            </div>
+            <div className="text-xl font-semibold tracking-wide">Generating preview</div>
+            <div className="flex items-center gap-2 text-sm text-slate-500">
+              <span className="h-2 w-2 rounded-full bg-slate-400 animate-bounce [animation-delay:-0.2s]"></span>
+              <span className="h-2 w-2 rounded-full bg-slate-400 animate-bounce [animation-delay:-0.1s]"></span>
+              <span className="h-2 w-2 rounded-full bg-slate-400 animate-bounce"></span>
+            </div>
           </div>
         </div>
       ) : (
